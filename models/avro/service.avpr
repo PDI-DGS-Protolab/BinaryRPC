@@ -1,0 +1,53 @@
+
+{"namespace": "com.paradigmatecnologico.binaryrpc.avro.service",
+ "protocol": "AvroTestService",
+ "types": [
+     {"name": "RequestData", 
+     								"type": "record",
+									 "fields": [
+									     {"name": "ID", "type": "double"},
+									     {"name": "name", "type": "string"},
+									     {"name": "state", "type": {
+									     							 "name": "State",
+																	 "type": "enum", 
+									     							 "symbols" : ["MARRIED", "SINGLE", "UNDEFINED"],
+									     							 "default": "UNDEFINED"}
+									     							},
+									     {"name": "telephones", "type": {
+									     								 "type": "map", 
+									     								 "values": "long"}
+									     								 },
+									     {"name": "addresses", "type": {
+									     								"type": "array", 
+									     								"items": "string"}
+									     								},
+									     {"name": "member", "type": ["boolean","null"]},
+									     {"name": "description", "type": ["string","null"]}
+									 ]
+     							 
+     },
+     {"name": "Search", "type": "record",
+      "fields": [
+        	{"name": "field", "type": ["string", "null"]},
+        	{"name": "value", "type": ["string", "null"]}
+      		]
+     },  
+     {"name": "Response", "type": "record",
+      "fields": [
+	        {"name": "code", "type": ["int", "null"]},
+	        {"name": "message", "type": ["string", "null"]},
+	        {"name": "responseData", "type": ["RequestData", "null"]}
+	      ]
+     }  
+ ],
+ "messages": {
+     "create": {
+         "request": [{"name": "request", "type": "RequestData"}],
+         "response": "Response"
+     },
+     "search": {
+         "request": [{"name": "request", "type": "Search"}],
+         "response": "Response"
+     }
+ }
+}
