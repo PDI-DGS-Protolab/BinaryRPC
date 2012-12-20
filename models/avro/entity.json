@@ -1,0 +1,24 @@
+{"namespace": "com.paradigmatecnologico.binaryrpc.avro.model",
+ "type": "record",
+ "name": "Data",
+ "fields": [
+     {"name": "ID", "type": "double"},
+     {"name": "name", "type": "string"},
+     {"name": "state", "type": {
+     							 "name": "State",
+								 "type": "enum", 
+     							 "symbols" : ["MARRIED", "SINGLE", "UNDEFINED"],
+     							 "default": "UNDEFINED"}
+     							},
+     {"name": "telephones", "type": {
+     								 "type": "map", 
+     								 "values": "long"}
+     								 },
+     {"name": "addresses", "type": {
+     								"type": "array", 
+     								"items": "string"}
+     								},
+     {"name": "member", "type": ["boolean","null"]},
+     {"name": "description", "type": ["string","null"]}
+ ]
+}

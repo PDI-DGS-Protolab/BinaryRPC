@@ -1,0 +1,28 @@
+syntax = "proto2";
+
+package com.paradigmatecnologico.binaryrpc.protobuf.model;
+
+message Data{
+	required float ID = 1;
+
+	required string name = 2;
+
+	enum State {
+    	MARRIED = 0;
+    	SINGLE = 1;
+    	UNDEFINED = 2;
+  	}
+  	optional State state = 3 [default = UNDEFINED];
+
+  	message Telephone {
+		required string alias = 1;
+	    repeated int64 number = 2;
+	}
+	repeated Telephone telephones = 4;
+
+	repeated string addresses = 5;
+
+	optional bool member = 6;
+
+	optional string description = 7;
+}
