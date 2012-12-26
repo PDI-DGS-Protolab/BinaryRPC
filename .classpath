@@ -9,6 +9,6 @@
 	<classpathentry kind="lib" path="lib/libthrift-0.9.0.jar"/>
 	<classpathentry kind="lib" path="lib/slf4j-api-1.7.2.jar"/>
 	<classpathentry kind="lib" path="lib/avro-1.7.3.jar"/>
-	<classpathentry kind="lib" path="lib/avro-tools-1.7.3.jar"/>
+	<classpathentry kind="lib" path="lib/avro-tools-1.7.3.jar" sourcepath="lib-sources/avro-1.7.3-sources.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
