@@ -5,19 +5,20 @@ import java.util.Map;
 
 import org.msgpack.annotation.Message;
 import org.msgpack.annotation.Optional;
+import org.msgpack.annotation.OrdinalEnum;
 
 public class Entity {
 	
 	@Message
 	public static class Data {
-		public float ID;
+		public double ID;
 
 		public String name;
 
 	  	@Optional
-		public String state = "UNDEFINED";
+		public State state = State.UNDEFINED;
 
-	  	public Map<String, Integer> telephones;
+	  	public Map<String, Long> telephones;
 
 		public List<String> addresses;
 
@@ -27,5 +28,20 @@ public class Entity {
 		@Optional
 		public String description = "";
     }
+	
+	@Message
+	public static class Response {
+		public Integer code;
+		
+		public String message;
+		
+		public Data responseData;
+	}
+	
+	@Message
+	@OrdinalEnum
+	public static enum State{
+		MARRIED,SINGLE,UNDEFINED
+	}
 
 }
