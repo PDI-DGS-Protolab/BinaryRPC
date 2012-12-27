@@ -9,7 +9,8 @@ import java.io.InputStreamReader;
 public class MessagePackTest {
 	
 	public static void main(String[] args) throws Exception {
-        
+		
+		System.out.println("Starting server on port 1984 ...");
 		MessagePackTestServer.run();
 		
 		// Uncomment this to launch 5 concurrent threads

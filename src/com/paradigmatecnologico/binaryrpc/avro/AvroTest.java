@@ -5,6 +5,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.InetSocketAddress;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -58,6 +59,19 @@ public class AvroTest {
 			
 			Response response= new Response();
 			
+			// connect to mongoDB, ip and port number
+			Mongo mongo=null;
+			try {
+				mongo = new Mongo("localhost", 27017);
+			} catch (UnknownHostException e1) {
+				e1.printStackTrace();
+			}
+			
+			// get database from MongoDB,
+			// if database doesn't exists, mongoDB will create it automatically
+			db = mongo.getDB("test");
+			
+			
 			try {
 				//Slow the execution for test asynchronous calls, if neccesary
 				//Thread.sleep((long) (new Random().nextDouble()*10000));
@@ -96,17 +110,29 @@ public class AvroTest {
 
 		@Override
 		public Response search(Search request) throws AvroRemoteException {
-			// TODO Auto-generated method stub
 			return null;
 		}
 
 		@Override
-		public void create(RequestData request,	org.apache.avro.ipc.Callback<Response> callback)throws IOException {
+		public void create(RequestData request,	org.apache.avro.ipc.Callback<Response> callback) {
 			Response response= new Response();
+			
+			// connect to mongoDB, ip and port number
+			Mongo mongo=null;
+			try {
+				mongo = new Mongo("localhost", 27017);
+			} catch (UnknownHostException e1) {
+				e1.printStackTrace();
+			}
+			
+			// get database from MongoDB,
+			// if database doesn't exists, mongoDB will create it automatically
+			db = mongo.getDB("test");
+			
 			
 			try {
 				//Slow the thread execution for test asynchronous calls
-				Thread.sleep((long) (new Random().nextDouble()*10000));
+				//Thread.sleep((long) (new Random().nextDouble()*10000));
 				
 				DBCollection coll = db.getCollection("testCollection");
 				
@@ -143,6 +169,8 @@ public class AvroTest {
 				response.setCode(404);
 				response.setMessage(e.getMessage());
 				callback.handleResult(response);
+			}finally{
+				mongo.close();
 			}
 		}
 
@@ -150,7 +178,6 @@ public class AvroTest {
 		public void search(Search request,
 				org.apache.avro.ipc.Callback<Response> callback)
 				throws IOException {
-			// TODO Auto-generated method stub
 			
 		}
 		
@@ -232,16 +259,10 @@ public class AvroTest {
 	
 	public static void main(String[] args) throws IOException, InterruptedException, ExecutionException {
 		
-		// connect to mongoDB, ip and port number
-		Mongo mongo = new Mongo("localhost", 27017);
 		
-		// get database from MongoDB,
-		// if database doesn't exists, mongoDB will create it automatically
-		db = mongo.getDB("test");
-		
-		
+		System.out.println("Starting server on port 1984 ...");
 		//Define new test server
-	    server = new NettyServer(new SpecificResponder(Callback.class,new AvroTestServer()),new InetSocketAddress(7001)); 
+	    server = new NettyServer(new SpecificResponder(Callback.class,new AvroTestServer()),new InetSocketAddress(1984)); 
 	    server.start();
 	    //Build simple test client
 	    client = new NettyTransceiver(new InetSocketAddress(server.getPort()));

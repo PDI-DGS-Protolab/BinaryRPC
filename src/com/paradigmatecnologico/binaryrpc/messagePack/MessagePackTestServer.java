@@ -1,5 +1,8 @@
 package com.paradigmatecnologico.binaryrpc.messagePack;
 
+import java.io.IOException;
+import java.net.UnknownHostException;
+
 import org.bson.types.ObjectId;
 import org.msgpack.rpc.Server;
 import org.msgpack.rpc.loop.EventLoop;
@@ -23,6 +26,19 @@ public class MessagePackTestServer {
 	// Asynchronous call
     public Response create(Data data) {
     	Response response= new Response();
+    	
+    	// connect to mongoDB, ip and port number
+     	Mongo mongo=null;
+		try {
+			mongo = new Mongo("localhost", 27017);
+		} catch (UnknownHostException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+     	
+     	// get database from MongoDB,
+     	// if database doesn't exists, mongoDB will create it automatically
+     	db = mongo.getDB("test");
 		
 		try {
 			//Slow the execution for test asynchronous calls, if neccesary
@@ -53,22 +69,22 @@ public class MessagePackTestServer {
 			response.code=500;
 			response.message=e.getMessage();
 			return response;
+		}finally{
+			mongo.close();
 		}
     }
  
-    public static void run() throws Exception {
+    public static void run() {
         loop = EventLoop.defaultEventLoop();
         
-        // connect to mongoDB, ip and port number
-     	Mongo mongo = new Mongo("localhost", 27017);
-     	
-     	// get database from MongoDB,
-     	// if database doesn't exists, mongoDB will create it automatically
-     	db = mongo.getDB("test");
- 
         svr = new Server(loop);
         svr.serve(new MessagePackTestServer());
-        svr.listen(1984);
+        try {
+			svr.listen(1984);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
  
     }
     
