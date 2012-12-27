@@ -29,17 +29,17 @@ import java.nio.ByteBuffer;
 import java.util.Arrays;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
+@SuppressWarnings(value = { "all" })
 public class Data implements org.apache.thrift.TBase<Data, Data._Fields>, java.io.Serializable, Cloneable {
   private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct("Data");
 
-  private static final org.apache.thrift.protocol.TField ID_FIELD_DESC = new org.apache.thrift.protocol.TField("ID", org.apache.thrift.protocol.TType.DOUBLE, (short)-1);
-  private static final org.apache.thrift.protocol.TField NAME_FIELD_DESC = new org.apache.thrift.protocol.TField("name", org.apache.thrift.protocol.TType.STRING, (short)-2);
-  private static final org.apache.thrift.protocol.TField STATE_FIELD_DESC = new org.apache.thrift.protocol.TField("state", org.apache.thrift.protocol.TType.I32, (short)-3);
-  private static final org.apache.thrift.protocol.TField TELEPHONES_FIELD_DESC = new org.apache.thrift.protocol.TField("telephones", org.apache.thrift.protocol.TType.MAP, (short)-4);
-  private static final org.apache.thrift.protocol.TField ADDRESSES_FIELD_DESC = new org.apache.thrift.protocol.TField("addresses", org.apache.thrift.protocol.TType.LIST, (short)-5);
-  private static final org.apache.thrift.protocol.TField MEMBER_FIELD_DESC = new org.apache.thrift.protocol.TField("member", org.apache.thrift.protocol.TType.BOOL, (short)-6);
-  private static final org.apache.thrift.protocol.TField DESCRIPTION_FIELD_DESC = new org.apache.thrift.protocol.TField("description", org.apache.thrift.protocol.TType.STRING, (short)-7);
+  private static final org.apache.thrift.protocol.TField ID_FIELD_DESC = new org.apache.thrift.protocol.TField("ID", org.apache.thrift.protocol.TType.DOUBLE, (short)1);
+  private static final org.apache.thrift.protocol.TField NAME_FIELD_DESC = new org.apache.thrift.protocol.TField("name", org.apache.thrift.protocol.TType.STRING, (short)2);
+  private static final org.apache.thrift.protocol.TField STATE_FIELD_DESC = new org.apache.thrift.protocol.TField("state", org.apache.thrift.protocol.TType.I32, (short)3);
+  private static final org.apache.thrift.protocol.TField TELEPHONES_FIELD_DESC = new org.apache.thrift.protocol.TField("telephones", org.apache.thrift.protocol.TType.MAP, (short)4);
+  private static final org.apache.thrift.protocol.TField ADDRESSES_FIELD_DESC = new org.apache.thrift.protocol.TField("addresses", org.apache.thrift.protocol.TType.LIST, (short)5);
+  private static final org.apache.thrift.protocol.TField MEMBER_FIELD_DESC = new org.apache.thrift.protocol.TField("member", org.apache.thrift.protocol.TType.BOOL, (short)6);
+  private static final org.apache.thrift.protocol.TField DESCRIPTION_FIELD_DESC = new org.apache.thrift.protocol.TField("description", org.apache.thrift.protocol.TType.STRING, (short)7);
 
   private static final Map<Class<? extends IScheme>, SchemeFactory> schemes = new HashMap<Class<? extends IScheme>, SchemeFactory>();
   static {
@@ -61,17 +61,17 @@ public class Data implements org.apache.thrift.TBase<Data, Data._Fields>, java.i
 
   /** The set of fields this struct contains, along with convenience methods for finding and manipulating them. */
   public enum _Fields implements org.apache.thrift.TFieldIdEnum {
-    ID((short)-1, "ID"),
-    NAME((short)-2, "name"),
+    ID((short)1, "ID"),
+    NAME((short)2, "name"),
     /**
      * 
      * @see State
      */
-    STATE((short)-3, "state"),
-    TELEPHONES((short)-4, "telephones"),
-    ADDRESSES((short)-5, "addresses"),
-    MEMBER((short)-6, "member"),
-    DESCRIPTION((short)-7, "description");
+    STATE((short)3, "state"),
+    TELEPHONES((short)4, "telephones"),
+    ADDRESSES((short)5, "addresses"),
+    MEMBER((short)6, "member"),
+    DESCRIPTION((short)7, "description");
 
     private static final Map<String, _Fields> byName = new HashMap<String, _Fields>();
 
@@ -86,19 +86,19 @@ public class Data implements org.apache.thrift.TBase<Data, Data._Fields>, java.i
      */
     public static _Fields findByThriftId(int fieldId) {
       switch(fieldId) {
-        case -1: // ID
+        case 1: // ID
           return ID;
-        case -2: // NAME
+        case 2: // NAME
           return NAME;
-        case -3: // STATE
+        case 3: // STATE
           return STATE;
-        case -4: // TELEPHONES
+        case 4: // TELEPHONES
           return TELEPHONES;
-        case -5: // ADDRESSES
+        case 5: // ADDRESSES
           return ADDRESSES;
-        case -6: // MEMBER
+        case 6: // MEMBER
           return MEMBER;
-        case -7: // DESCRIPTION
+        case 7: // DESCRIPTION
           return DESCRIPTION;
         default:
           return null;
@@ -848,7 +848,7 @@ public class Data implements org.apache.thrift.TBase<Data, Data._Fields>, java.i
           break;
         }
         switch (schemeField.id) {
-          case -1: // ID
+          case 1: // ID
             if (schemeField.type == org.apache.thrift.protocol.TType.DOUBLE) {
               struct.ID = iprot.readDouble();
               struct.setIDIsSet(true);
@@ -856,7 +856,7 @@ public class Data implements org.apache.thrift.TBase<Data, Data._Fields>, java.i
               org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
             }
             break;
-          case -2: // NAME
+          case 2: // NAME
             if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
               struct.name = iprot.readString();
               struct.setNameIsSet(true);
@@ -864,7 +864,7 @@ public class Data implements org.apache.thrift.TBase<Data, Data._Fields>, java.i
               org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
             }
             break;
-          case -3: // STATE
+          case 3: // STATE
             if (schemeField.type == org.apache.thrift.protocol.TType.I32) {
               struct.state = State.findByValue(iprot.readI32());
               struct.setStateIsSet(true);
@@ -872,7 +872,7 @@ public class Data implements org.apache.thrift.TBase<Data, Data._Fields>, java.i
               org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
             }
             break;
-          case -4: // TELEPHONES
+          case 4: // TELEPHONES
             if (schemeField.type == org.apache.thrift.protocol.TType.MAP) {
               {
                 org.apache.thrift.protocol.TMap _map0 = iprot.readMapBegin();
@@ -892,7 +892,7 @@ public class Data implements org.apache.thrift.TBase<Data, Data._Fields>, java.i
               org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
             }
             break;
-          case -5: // ADDRESSES
+          case 5: // ADDRESSES
             if (schemeField.type == org.apache.thrift.protocol.TType.LIST) {
               {
                 org.apache.thrift.protocol.TList _list4 = iprot.readListBegin();
@@ -910,7 +910,7 @@ public class Data implements org.apache.thrift.TBase<Data, Data._Fields>, java.i
               org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
             }
             break;
-          case -6: // MEMBER
+          case 6: // MEMBER
             if (schemeField.type == org.apache.thrift.protocol.TType.BOOL) {
               struct.member = iprot.readBool();
               struct.setMemberIsSet(true);
@@ -918,7 +918,7 @@ public class Data implements org.apache.thrift.TBase<Data, Data._Fields>, java.i
               org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
             }
             break;
-          case -7: // DESCRIPTION
+          case 7: // DESCRIPTION
             if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
               struct.description = iprot.readString();
               struct.setDescriptionIsSet(true);
@@ -944,41 +944,12 @@ public class Data implements org.apache.thrift.TBase<Data, Data._Fields>, java.i
       struct.validate();
 
       oprot.writeStructBegin(STRUCT_DESC);
-      if (struct.description != null) {
-        if (struct.isSetDescription()) {
-          oprot.writeFieldBegin(DESCRIPTION_FIELD_DESC);
-          oprot.writeString(struct.description);
-          oprot.writeFieldEnd();
-        }
-      }
-      if (struct.isSetMember()) {
-        oprot.writeFieldBegin(MEMBER_FIELD_DESC);
-        oprot.writeBool(struct.member);
-        oprot.writeFieldEnd();
-      }
-      if (struct.addresses != null) {
-        oprot.writeFieldBegin(ADDRESSES_FIELD_DESC);
-        {
-          oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.STRING, struct.addresses.size()));
-          for (String _iter7 : struct.addresses)
-          {
-            oprot.writeString(_iter7);
-          }
-          oprot.writeListEnd();
-        }
-        oprot.writeFieldEnd();
-      }
-      if (struct.telephones != null) {
-        oprot.writeFieldBegin(TELEPHONES_FIELD_DESC);
-        {
-          oprot.writeMapBegin(new org.apache.thrift.protocol.TMap(org.apache.thrift.protocol.TType.STRING, org.apache.thrift.protocol.TType.I64, struct.telephones.size()));
-          for (Map.Entry<String, Long> _iter8 : struct.telephones.entrySet())
-          {
-            oprot.writeString(_iter8.getKey());
-            oprot.writeI64(_iter8.getValue());
-          }
-          oprot.writeMapEnd();
-        }
+      oprot.writeFieldBegin(ID_FIELD_DESC);
+      oprot.writeDouble(struct.ID);
+      oprot.writeFieldEnd();
+      if (struct.name != null) {
+        oprot.writeFieldBegin(NAME_FIELD_DESC);
+        oprot.writeString(struct.name);
         oprot.writeFieldEnd();
       }
       if (struct.state != null) {
@@ -988,14 +959,43 @@ public class Data implements org.apache.thrift.TBase<Data, Data._Fields>, java.i
           oprot.writeFieldEnd();
         }
       }
-      if (struct.name != null) {
-        oprot.writeFieldBegin(NAME_FIELD_DESC);
-        oprot.writeString(struct.name);
+      if (struct.telephones != null) {
+        oprot.writeFieldBegin(TELEPHONES_FIELD_DESC);
+        {
+          oprot.writeMapBegin(new org.apache.thrift.protocol.TMap(org.apache.thrift.protocol.TType.STRING, org.apache.thrift.protocol.TType.I64, struct.telephones.size()));
+          for (Map.Entry<String, Long> _iter7 : struct.telephones.entrySet())
+          {
+            oprot.writeString(_iter7.getKey());
+            oprot.writeI64(_iter7.getValue());
+          }
+          oprot.writeMapEnd();
+        }
         oprot.writeFieldEnd();
       }
-      oprot.writeFieldBegin(ID_FIELD_DESC);
-      oprot.writeDouble(struct.ID);
-      oprot.writeFieldEnd();
+      if (struct.addresses != null) {
+        oprot.writeFieldBegin(ADDRESSES_FIELD_DESC);
+        {
+          oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.STRING, struct.addresses.size()));
+          for (String _iter8 : struct.addresses)
+          {
+            oprot.writeString(_iter8);
+          }
+          oprot.writeListEnd();
+        }
+        oprot.writeFieldEnd();
+      }
+      if (struct.isSetMember()) {
+        oprot.writeFieldBegin(MEMBER_FIELD_DESC);
+        oprot.writeBool(struct.member);
+        oprot.writeFieldEnd();
+      }
+      if (struct.description != null) {
+        if (struct.isSetDescription()) {
+          oprot.writeFieldBegin(DESCRIPTION_FIELD_DESC);
+          oprot.writeString(struct.description);
+          oprot.writeFieldEnd();
+        }
+      }
       oprot.writeFieldStop();
       oprot.writeStructEnd();
     }

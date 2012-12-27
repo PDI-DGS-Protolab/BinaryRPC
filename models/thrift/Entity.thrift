@@ -10,19 +10,36 @@ enum State {
    	UNDEFINED
 }
 
-
+//Defines simple Data Structure
 struct Data {
-	required double ID
+	1: required double ID
 
-	required string name
+	2: required string name
 	
-	optional State state = State.UNDEFINED
+	3: optional State state = State.UNDEFINED
 	
-	required map<string,i64> telephones
+	4: required map<string,i64> telephones
 	
-	required list<string> addresses
+	5: required list<string> addresses
 	
-	optional bool member
+	6: optional bool member
 	
-	optional string description	
+	7: optional string description	
+}
+
+struct Response {
+
+	1: required i32 code;
+		
+	2: required string message;
+		
+	3: optional Data responseData;
+
+}
+
+//Defines simple service
+service ThriftTestService {
+
+	Response create(1:Data data),
+
 }

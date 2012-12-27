@@ -10,7 +10,7 @@ package com.paradigmatecnologico.binaryrpc.thrift.model;
 import java.util.Map;
 import java.util.HashMap;
 import org.apache.thrift.TEnum;
-
+@SuppressWarnings(value = { "all" })
 public enum State implements org.apache.thrift.TEnum {
   MARRIED(0),
   SINGLE(1),
