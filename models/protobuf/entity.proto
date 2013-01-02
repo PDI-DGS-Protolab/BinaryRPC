@@ -3,7 +3,7 @@ syntax = "proto2";
 package com.paradigmatecnologico.binaryrpc.protobuf.model;
 
 message Data{
-	required float ID = 1;
+	required double ID = 1;
 
 	required string name = 2;
 
@@ -25,4 +25,21 @@ message Data{
 	optional bool member = 6;
 
 	optional string description = 7;
+}
+
+message Response{
+	required int32 code = 1;
+
+	required string message = 2;
+
+	optional Data responseData = 3;
+}
+
+
+option java_generic_services = true;
+//Defines simple service
+service ProtobufTestService {
+
+	rpc create(Data) returns(Response);
+
 }

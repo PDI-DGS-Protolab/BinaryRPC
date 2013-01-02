@@ -11,15 +11,15 @@ public final class Entity {
   public interface DataOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
-    // required float ID = 1;
+    // required double ID = 1;
     /**
-     * <code>required float ID = 1;</code>
+     * <code>required double ID = 1;</code>
      */
     boolean hasID();
     /**
-     * <code>required float ID = 1;</code>
+     * <code>required double ID = 1;</code>
      */
-    float getID();
+    double getID();
 
     // required string name = 2;
     /**
@@ -167,9 +167,9 @@ public final class Entity {
               }
               break;
             }
-            case 13: {
+            case 9: {
               bitField0_ |= 0x00000001;
-              iD_ = input.readFloat();
+              iD_ = input.readDouble();
               break;
             }
             case 18: {
@@ -987,19 +987,19 @@ public final class Entity {
     }
 
     private int bitField0_;
-    // required float ID = 1;
+    // required double ID = 1;
     public static final int ID_FIELD_NUMBER = 1;
-    private float iD_;
+    private double iD_;
     /**
-     * <code>required float ID = 1;</code>
+     * <code>required double ID = 1;</code>
      */
     public boolean hasID() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>required float ID = 1;</code>
+     * <code>required double ID = 1;</code>
      */
-    public float getID() {
+    public double getID() {
       return iD_;
     }
 
@@ -1188,7 +1188,7 @@ public final class Entity {
     }
 
     private void initFields() {
-      iD_ = 0F;
+      iD_ = 0D;
       name_ = "";
       state_ = com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Data.State.UNDEFINED;
       telephones_ = java.util.Collections.emptyList();
@@ -1223,7 +1223,7 @@ public final class Entity {
                         throws java.io.IOException {
       getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeFloat(1, iD_);
+        output.writeDouble(1, iD_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         output.writeBytes(2, getNameBytes());
@@ -1254,7 +1254,7 @@ public final class Entity {
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeFloatSize(1, iD_);
+          .computeDoubleSize(1, iD_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
@@ -1402,7 +1402,7 @@ public final class Entity {
 
       public Builder clear() {
         super.clear();
-        iD_ = 0F;
+        iD_ = 0D;
         bitField0_ = (bitField0_ & ~0x00000001);
         name_ = "";
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -1595,35 +1595,35 @@ public final class Entity {
       }
       private int bitField0_;
 
-      // required float ID = 1;
-      private float iD_ ;
+      // required double ID = 1;
+      private double iD_ ;
       /**
-       * <code>required float ID = 1;</code>
+       * <code>required double ID = 1;</code>
        */
       public boolean hasID() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>required float ID = 1;</code>
+       * <code>required double ID = 1;</code>
        */
-      public float getID() {
+      public double getID() {
         return iD_;
       }
       /**
-       * <code>required float ID = 1;</code>
+       * <code>required double ID = 1;</code>
        */
-      public Builder setID(float value) {
+      public Builder setID(double value) {
         bitField0_ |= 0x00000001;
         iD_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required float ID = 1;</code>
+       * <code>required double ID = 1;</code>
        */
       public Builder clearID() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        iD_ = 0F;
+        iD_ = 0D;
         onChanged();
         return this;
       }
@@ -2189,6 +2189,1012 @@ public final class Entity {
     // @@protoc_insertion_point(class_scope:com.paradigmatecnologico.binaryrpc.protobuf.model.Data)
   }
 
+  public interface ResponseOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // required int32 code = 1;
+    /**
+     * <code>required int32 code = 1;</code>
+     */
+    boolean hasCode();
+    /**
+     * <code>required int32 code = 1;</code>
+     */
+    int getCode();
+
+    // required string message = 2;
+    /**
+     * <code>required string message = 2;</code>
+     */
+    boolean hasMessage();
+    /**
+     * <code>required string message = 2;</code>
+     */
+    java.lang.String getMessage();
+    /**
+     * <code>required string message = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getMessageBytes();
+
+    // optional .com.paradigmatecnologico.binaryrpc.protobuf.model.Data responseData = 3;
+    /**
+     * <code>optional .com.paradigmatecnologico.binaryrpc.protobuf.model.Data responseData = 3;</code>
+     */
+    boolean hasResponseData();
+    /**
+     * <code>optional .com.paradigmatecnologico.binaryrpc.protobuf.model.Data responseData = 3;</code>
+     */
+    com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Data getResponseData();
+    /**
+     * <code>optional .com.paradigmatecnologico.binaryrpc.protobuf.model.Data responseData = 3;</code>
+     */
+    com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.DataOrBuilder getResponseDataOrBuilder();
+  }
+  /**
+   * Protobuf type {@code com.paradigmatecnologico.binaryrpc.protobuf.model.Response}
+   */
+  public static final class Response extends
+      com.google.protobuf.GeneratedMessage
+      implements ResponseOrBuilder {
+    // Use Response.newBuilder() to construct.
+    private Response(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private Response(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final Response defaultInstance;
+    public static Response getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public Response getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private Response(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              code_ = input.readInt32();
+              break;
+            }
+            case 18: {
+              bitField0_ |= 0x00000002;
+              message_ = input.readBytes();
+              break;
+            }
+            case 26: {
+              com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Data.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000004) == 0x00000004)) {
+                subBuilder = responseData_.toBuilder();
+              }
+              responseData_ = input.readMessage(com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Data.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(responseData_);
+                responseData_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000004;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.internal_static_com_paradigmatecnologico_binaryrpc_protobuf_model_Response_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.internal_static_com_paradigmatecnologico_binaryrpc_protobuf_model_Response_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Response.class, com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Response.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<Response> PARSER =
+        new com.google.protobuf.AbstractParser<Response>() {
+      public Response parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Response(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Response> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // required int32 code = 1;
+    public static final int CODE_FIELD_NUMBER = 1;
+    private int code_;
+    /**
+     * <code>required int32 code = 1;</code>
+     */
+    public boolean hasCode() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required int32 code = 1;</code>
+     */
+    public int getCode() {
+      return code_;
+    }
+
+    // required string message = 2;
+    public static final int MESSAGE_FIELD_NUMBER = 2;
+    private java.lang.Object message_;
+    /**
+     * <code>required string message = 2;</code>
+     */
+    public boolean hasMessage() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required string message = 2;</code>
+     */
+    public java.lang.String getMessage() {
+      java.lang.Object ref = message_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          message_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string message = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getMessageBytes() {
+      java.lang.Object ref = message_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        message_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    // optional .com.paradigmatecnologico.binaryrpc.protobuf.model.Data responseData = 3;
+    public static final int RESPONSEDATA_FIELD_NUMBER = 3;
+    private com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Data responseData_;
+    /**
+     * <code>optional .com.paradigmatecnologico.binaryrpc.protobuf.model.Data responseData = 3;</code>
+     */
+    public boolean hasResponseData() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>optional .com.paradigmatecnologico.binaryrpc.protobuf.model.Data responseData = 3;</code>
+     */
+    public com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Data getResponseData() {
+      return responseData_;
+    }
+    /**
+     * <code>optional .com.paradigmatecnologico.binaryrpc.protobuf.model.Data responseData = 3;</code>
+     */
+    public com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.DataOrBuilder getResponseDataOrBuilder() {
+      return responseData_;
+    }
+
+    private void initFields() {
+      code_ = 0;
+      message_ = "";
+      responseData_ = com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Data.getDefaultInstance();
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      if (!hasCode()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasMessage()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (hasResponseData()) {
+        if (!getResponseData().isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt32(1, code_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeBytes(2, getMessageBytes());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeMessage(3, responseData_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, code_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2, getMessageBytes());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, responseData_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Response parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Response parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Response parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Response parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Response parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Response parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Response parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Response parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Response parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Response parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Response prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.paradigmatecnologico.binaryrpc.protobuf.model.Response}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.ResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.internal_static_com_paradigmatecnologico_binaryrpc_protobuf_model_Response_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.internal_static_com_paradigmatecnologico_binaryrpc_protobuf_model_Response_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Response.class, com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Response.Builder.class);
+      }
+
+      // Construct using com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Response.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          getResponseDataFieldBuilder();
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        code_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        message_ = "";
+        bitField0_ = (bitField0_ & ~0x00000002);
+        if (responseDataBuilder_ == null) {
+          responseData_ = com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Data.getDefaultInstance();
+        } else {
+          responseDataBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.internal_static_com_paradigmatecnologico_binaryrpc_protobuf_model_Response_descriptor;
+      }
+
+      public com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Response getDefaultInstanceForType() {
+        return com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Response.getDefaultInstance();
+      }
+
+      public com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Response build() {
+        com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Response result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Response buildPartial() {
+        com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Response result = new com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Response(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.code_ = code_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.message_ = message_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        if (responseDataBuilder_ == null) {
+          result.responseData_ = responseData_;
+        } else {
+          result.responseData_ = responseDataBuilder_.build();
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Response) {
+          return mergeFrom((com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Response)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Response other) {
+        if (other == com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Response.getDefaultInstance()) return this;
+        if (other.hasCode()) {
+          setCode(other.getCode());
+        }
+        if (other.hasMessage()) {
+          bitField0_ |= 0x00000002;
+          message_ = other.message_;
+          onChanged();
+        }
+        if (other.hasResponseData()) {
+          mergeResponseData(other.getResponseData());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasCode()) {
+          
+          return false;
+        }
+        if (!hasMessage()) {
+          
+          return false;
+        }
+        if (hasResponseData()) {
+          if (!getResponseData().isInitialized()) {
+            
+            return false;
+          }
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Response parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Response) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // required int32 code = 1;
+      private int code_ ;
+      /**
+       * <code>required int32 code = 1;</code>
+       */
+      public boolean hasCode() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required int32 code = 1;</code>
+       */
+      public int getCode() {
+        return code_;
+      }
+      /**
+       * <code>required int32 code = 1;</code>
+       */
+      public Builder setCode(int value) {
+        bitField0_ |= 0x00000001;
+        code_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int32 code = 1;</code>
+       */
+      public Builder clearCode() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        code_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // required string message = 2;
+      private java.lang.Object message_ = "";
+      /**
+       * <code>required string message = 2;</code>
+       */
+      public boolean hasMessage() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required string message = 2;</code>
+       */
+      public java.lang.String getMessage() {
+        java.lang.Object ref = message_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          message_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string message = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getMessageBytes() {
+        java.lang.Object ref = message_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          message_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string message = 2;</code>
+       */
+      public Builder setMessage(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        message_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string message = 2;</code>
+       */
+      public Builder clearMessage() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        message_ = getDefaultInstance().getMessage();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string message = 2;</code>
+       */
+      public Builder setMessageBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        message_ = value;
+        onChanged();
+        return this;
+      }
+
+      // optional .com.paradigmatecnologico.binaryrpc.protobuf.model.Data responseData = 3;
+      private com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Data responseData_ = com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Data.getDefaultInstance();
+      private com.google.protobuf.SingleFieldBuilder<
+          com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Data, com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Data.Builder, com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.DataOrBuilder> responseDataBuilder_;
+      /**
+       * <code>optional .com.paradigmatecnologico.binaryrpc.protobuf.model.Data responseData = 3;</code>
+       */
+      public boolean hasResponseData() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>optional .com.paradigmatecnologico.binaryrpc.protobuf.model.Data responseData = 3;</code>
+       */
+      public com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Data getResponseData() {
+        if (responseDataBuilder_ == null) {
+          return responseData_;
+        } else {
+          return responseDataBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .com.paradigmatecnologico.binaryrpc.protobuf.model.Data responseData = 3;</code>
+       */
+      public Builder setResponseData(com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Data value) {
+        if (responseDataBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          responseData_ = value;
+          onChanged();
+        } else {
+          responseDataBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <code>optional .com.paradigmatecnologico.binaryrpc.protobuf.model.Data responseData = 3;</code>
+       */
+      public Builder setResponseData(
+          com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Data.Builder builderForValue) {
+        if (responseDataBuilder_ == null) {
+          responseData_ = builderForValue.build();
+          onChanged();
+        } else {
+          responseDataBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <code>optional .com.paradigmatecnologico.binaryrpc.protobuf.model.Data responseData = 3;</code>
+       */
+      public Builder mergeResponseData(com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Data value) {
+        if (responseDataBuilder_ == null) {
+          if (((bitField0_ & 0x00000004) == 0x00000004) &&
+              responseData_ != com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Data.getDefaultInstance()) {
+            responseData_ =
+              com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Data.newBuilder(responseData_).mergeFrom(value).buildPartial();
+          } else {
+            responseData_ = value;
+          }
+          onChanged();
+        } else {
+          responseDataBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <code>optional .com.paradigmatecnologico.binaryrpc.protobuf.model.Data responseData = 3;</code>
+       */
+      public Builder clearResponseData() {
+        if (responseDataBuilder_ == null) {
+          responseData_ = com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Data.getDefaultInstance();
+          onChanged();
+        } else {
+          responseDataBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+      /**
+       * <code>optional .com.paradigmatecnologico.binaryrpc.protobuf.model.Data responseData = 3;</code>
+       */
+      public com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Data.Builder getResponseDataBuilder() {
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return getResponseDataFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .com.paradigmatecnologico.binaryrpc.protobuf.model.Data responseData = 3;</code>
+       */
+      public com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.DataOrBuilder getResponseDataOrBuilder() {
+        if (responseDataBuilder_ != null) {
+          return responseDataBuilder_.getMessageOrBuilder();
+        } else {
+          return responseData_;
+        }
+      }
+      /**
+       * <code>optional .com.paradigmatecnologico.binaryrpc.protobuf.model.Data responseData = 3;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Data, com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Data.Builder, com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.DataOrBuilder> 
+          getResponseDataFieldBuilder() {
+        if (responseDataBuilder_ == null) {
+          responseDataBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Data, com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Data.Builder, com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.DataOrBuilder>(
+                  responseData_,
+                  getParentForChildren(),
+                  isClean());
+          responseData_ = null;
+        }
+        return responseDataBuilder_;
+      }
+
+      // @@protoc_insertion_point(builder_scope:com.paradigmatecnologico.binaryrpc.protobuf.model.Response)
+    }
+
+    static {
+      defaultInstance = new Response(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:com.paradigmatecnologico.binaryrpc.protobuf.model.Response)
+  }
+
+  /**
+   * Protobuf service {@code com.paradigmatecnologico.binaryrpc.protobuf.model.ProtobufTestService}
+   *
+   * <pre>
+   *Defines simple service
+   * </pre>
+   */
+  public static abstract class ProtobufTestService
+      implements com.google.protobuf.Service {
+    protected ProtobufTestService() {}
+
+    public interface Interface {
+      /**
+       * <code>rpc create(.com.paradigmatecnologico.binaryrpc.protobuf.model.Data) returns (.com.paradigmatecnologico.binaryrpc.protobuf.model.Response);</code>
+       */
+      public abstract void create(
+          com.google.protobuf.RpcController controller,
+          com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Data request,
+          com.google.protobuf.RpcCallback<com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Response> done);
+
+    }
+
+    public static com.google.protobuf.Service newReflectiveService(
+        final Interface impl) {
+      return new ProtobufTestService() {
+        @java.lang.Override
+        public  void create(
+            com.google.protobuf.RpcController controller,
+            com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Data request,
+            com.google.protobuf.RpcCallback<com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Response> done) {
+          impl.create(controller, request, done);
+        }
+
+      };
+    }
+
+    public static com.google.protobuf.BlockingService
+        newReflectiveBlockingService(final BlockingInterface impl) {
+      return new com.google.protobuf.BlockingService() {
+        public final com.google.protobuf.Descriptors.ServiceDescriptor
+            getDescriptorForType() {
+          return getDescriptor();
+        }
+
+        public final com.google.protobuf.Message callBlockingMethod(
+            com.google.protobuf.Descriptors.MethodDescriptor method,
+            com.google.protobuf.RpcController controller,
+            com.google.protobuf.Message request)
+            throws com.google.protobuf.ServiceException {
+          if (method.getService() != getDescriptor()) {
+            throw new java.lang.IllegalArgumentException(
+              "Service.callBlockingMethod() given method descriptor for " +
+              "wrong service type.");
+          }
+          switch(method.getIndex()) {
+            case 0:
+              return impl.create(controller, (com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Data)request);
+            default:
+              throw new java.lang.AssertionError("Can't get here.");
+          }
+        }
+
+        public final com.google.protobuf.Message
+            getRequestPrototype(
+            com.google.protobuf.Descriptors.MethodDescriptor method) {
+          if (method.getService() != getDescriptor()) {
+            throw new java.lang.IllegalArgumentException(
+              "Service.getRequestPrototype() given method " +
+              "descriptor for wrong service type.");
+          }
+          switch(method.getIndex()) {
+            case 0:
+              return com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Data.getDefaultInstance();
+            default:
+              throw new java.lang.AssertionError("Can't get here.");
+          }
+        }
+
+        public final com.google.protobuf.Message
+            getResponsePrototype(
+            com.google.protobuf.Descriptors.MethodDescriptor method) {
+          if (method.getService() != getDescriptor()) {
+            throw new java.lang.IllegalArgumentException(
+              "Service.getResponsePrototype() given method " +
+              "descriptor for wrong service type.");
+          }
+          switch(method.getIndex()) {
+            case 0:
+              return com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Response.getDefaultInstance();
+            default:
+              throw new java.lang.AssertionError("Can't get here.");
+          }
+        }
+
+      };
+    }
+
+    /**
+     * <code>rpc create(.com.paradigmatecnologico.binaryrpc.protobuf.model.Data) returns (.com.paradigmatecnologico.binaryrpc.protobuf.model.Response);</code>
+     */
+    public abstract void create(
+        com.google.protobuf.RpcController controller,
+        com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Data request,
+        com.google.protobuf.RpcCallback<com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Response> done);
+
+    public static final
+        com.google.protobuf.Descriptors.ServiceDescriptor
+        getDescriptor() {
+      return com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.getDescriptor().getServices().get(0);
+    }
+    public final com.google.protobuf.Descriptors.ServiceDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+
+    public final void callMethod(
+        com.google.protobuf.Descriptors.MethodDescriptor method,
+        com.google.protobuf.RpcController controller,
+        com.google.protobuf.Message request,
+        com.google.protobuf.RpcCallback<
+          com.google.protobuf.Message> done) {
+      if (method.getService() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "Service.callMethod() given method descriptor for wrong " +
+          "service type.");
+      }
+      switch(method.getIndex()) {
+        case 0:
+          this.create(controller, (com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Data)request,
+            com.google.protobuf.RpcUtil.<com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Response>specializeCallback(
+              done));
+          return;
+        default:
+          throw new java.lang.AssertionError("Can't get here.");
+      }
+    }
+
+    public final com.google.protobuf.Message
+        getRequestPrototype(
+        com.google.protobuf.Descriptors.MethodDescriptor method) {
+      if (method.getService() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "Service.getRequestPrototype() given method " +
+          "descriptor for wrong service type.");
+      }
+      switch(method.getIndex()) {
+        case 0:
+          return com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Data.getDefaultInstance();
+        default:
+          throw new java.lang.AssertionError("Can't get here.");
+      }
+    }
+
+    public final com.google.protobuf.Message
+        getResponsePrototype(
+        com.google.protobuf.Descriptors.MethodDescriptor method) {
+      if (method.getService() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "Service.getResponsePrototype() given method " +
+          "descriptor for wrong service type.");
+      }
+      switch(method.getIndex()) {
+        case 0:
+          return com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Response.getDefaultInstance();
+        default:
+          throw new java.lang.AssertionError("Can't get here.");
+      }
+    }
+
+    public static Stub newStub(
+        com.google.protobuf.RpcChannel channel) {
+      return new Stub(channel);
+    }
+
+    public static final class Stub extends com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.ProtobufTestService implements Interface {
+      private Stub(com.google.protobuf.RpcChannel channel) {
+        this.channel = channel;
+      }
+
+      private final com.google.protobuf.RpcChannel channel;
+
+      public com.google.protobuf.RpcChannel getChannel() {
+        return channel;
+      }
+
+      public  void create(
+          com.google.protobuf.RpcController controller,
+          com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Data request,
+          com.google.protobuf.RpcCallback<com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Response> done) {
+        channel.callMethod(
+          getDescriptor().getMethods().get(0),
+          controller,
+          request,
+          com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Response.getDefaultInstance(),
+          com.google.protobuf.RpcUtil.generalizeCallback(
+            done,
+            com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Response.class,
+            com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Response.getDefaultInstance()));
+      }
+    }
+
+    public static BlockingInterface newBlockingStub(
+        com.google.protobuf.BlockingRpcChannel channel) {
+      return new BlockingStub(channel);
+    }
+
+    public interface BlockingInterface {
+      public com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Response create(
+          com.google.protobuf.RpcController controller,
+          com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Data request)
+          throws com.google.protobuf.ServiceException;
+    }
+
+    private static final class BlockingStub implements BlockingInterface {
+      private BlockingStub(com.google.protobuf.BlockingRpcChannel channel) {
+        this.channel = channel;
+      }
+
+      private final com.google.protobuf.BlockingRpcChannel channel;
+
+      public com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Response create(
+          com.google.protobuf.RpcController controller,
+          com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Data request)
+          throws com.google.protobuf.ServiceException {
+        return (com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Response) channel.callBlockingMethod(
+          getDescriptor().getMethods().get(0),
+          controller,
+          request,
+          com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Response.getDefaultInstance());
+      }
+
+    }
+  }
+
   private static com.google.protobuf.Descriptors.Descriptor
     internal_static_com_paradigmatecnologico_binaryrpc_protobuf_model_Data_descriptor;
   private static
@@ -2199,6 +3205,11 @@ public final class Entity {
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_com_paradigmatecnologico_binaryrpc_protobuf_model_Data_Telephone_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_paradigmatecnologico_binaryrpc_protobuf_model_Response_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_com_paradigmatecnologico_binaryrpc_protobuf_model_Response_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -2210,7 +3221,7 @@ public final class Entity {
     java.lang.String[] descriptorData = {
       "\n\025protobuf/entity.proto\0221com.paradigmate" +
       "cnologico.binaryrpc.protobuf.model\"\345\002\n\004D" +
-      "ata\022\n\n\002ID\030\001 \002(\002\022\014\n\004name\030\002 \002(\t\022W\n\005state\030\003" +
+      "ata\022\n\n\002ID\030\001 \002(\001\022\014\n\004name\030\002 \002(\t\022W\n\005state\030\003" +
       " \001(\0162=.com.paradigmatecnologico.binaryrp" +
       "c.protobuf.model.Data.State:\tUNDEFINED\022U" +
       "\n\ntelephones\030\004 \003(\0132A.com.paradigmatecnol" +
@@ -2218,7 +3229,14 @@ public final class Entity {
       "phone\022\021\n\taddresses\030\005 \003(\t\022\016\n\006member\030\006 \001(\010" +
       "\022\023\n\013description\030\007 \001(\t\032*\n\tTelephone\022\r\n\005al" +
       "ias\030\001 \002(\t\022\016\n\006number\030\002 \003(\003\"/\n\005State\022\013\n\007MA",
-      "RRIED\020\000\022\n\n\006SINGLE\020\001\022\r\n\tUNDEFINED\020\002"
+      "RRIED\020\000\022\n\n\006SINGLE\020\001\022\r\n\tUNDEFINED\020\002\"x\n\010Re" +
+      "sponse\022\014\n\004code\030\001 \002(\005\022\017\n\007message\030\002 \002(\t\022M\n" +
+      "\014responseData\030\003 \001(\01327.com.paradigmatecno" +
+      "logico.binaryrpc.protobuf.model.Data2\225\001\n" +
+      "\023ProtobufTestService\022~\n\006create\0227.com.par" +
+      "adigmatecnologico.binaryrpc.protobuf.mod" +
+      "el.Data\032;.com.paradigmatecnologico.binar" +
+      "yrpc.protobuf.model.ResponseB\003\210\001\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -2237,6 +3255,12 @@ public final class Entity {
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_paradigmatecnologico_binaryrpc_protobuf_model_Data_Telephone_descriptor,
               new java.lang.String[] { "Alias", "Number", });
+          internal_static_com_paradigmatecnologico_binaryrpc_protobuf_model_Response_descriptor =
+            getDescriptor().getMessageTypes().get(1);
+          internal_static_com_paradigmatecnologico_binaryrpc_protobuf_model_Response_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_com_paradigmatecnologico_binaryrpc_protobuf_model_Response_descriptor,
+              new java.lang.String[] { "Code", "Message", "ResponseData", });
           return null;
         }
       };
