@@ -14,31 +14,29 @@ import com.googlecode.protobuf.socketrpc.RpcChannels;
 import com.googlecode.protobuf.socketrpc.RpcConnectionFactory;
 import com.googlecode.protobuf.socketrpc.SocketRpcConnectionFactories;
 import com.googlecode.protobuf.socketrpc.SocketRpcController;
+import com.paradigmatecnologico.binaryrpc.protobuf.model.Entity;
 import com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Data;
 import com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Data.State;
 import com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Data.Telephone;
-import com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.ProtobufTestService;
+import com.paradigmatecnologico.binaryrpc.protobuf.model.ProtoBufTestService.ProtobufTestService;
 import com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Response;
 
 public class ProtoBufTestClient implements Runnable {
 	
 	public ExecutorService threadPool;
-	public RpcConnectionFactory connectionFactory;
-	public RpcChannel channel;
 	
 	private Date requestTime;
 
 	public void run() {
-	    try {
 	    	//Populate sample data
 	        Data data = populateData();
 	    	
 	        // Create a thread pool
-	        threadPool = Executors.newFixedThreadPool(20);
+	        threadPool = Executors.newFixedThreadPool(1);
 	        
 	        // Create channel
-	        connectionFactory = SocketRpcConnectionFactories.createUndelimitedRpcConnectionFactory("localhost", 1984);
-	        channel = RpcChannels.newRpcChannel(connectionFactory, threadPool);
+	        RpcConnectionFactory connectionFactory = SocketRpcConnectionFactories.createRpcConnectionFactory("127.0.0.1", 1984);
+	        RpcChannel channel = RpcChannels.newRpcChannel(connectionFactory, threadPool);
 	        
 	        
 	    	//Calculate Message Size
@@ -50,18 +48,30 @@ public class ProtoBufTestClient implements Runnable {
 	        ProtobufTestService testService = ProtobufTestService.newStub(channel);
 	        RpcController controller = new SocketRpcController();
 	        
-	        CreateMethodCallback callback = new CreateMethodCallback();
-	        
-	        testService.create(controller, data, callback);
+	        //CreateMethodCallback callback = new CreateMethodCallback();
+	        testService.create(controller,data, new RpcCallback<Entity.Response>() {
+
+				@Override
+				public void run(Entity.Response arg0) {
+					Response result = arg0;
+	                System.out.println("2." + Thread.currentThread().getName()+": client.create(data, new CreateMethodCallback()); returned");
+	                System.out.println("3." + Thread.currentThread().getName()+": Future<Response>.get() returned \"" + result.getMessage() + "\"");
+	                Date responseTime = new Date();
+	        		
+	        		//Get the time between calls;
+	        		long difference = responseTime.getTime()- requestTime.getTime();
+	        		System.out.println("4." + Thread.currentThread().getName()+": This call has taken "+ difference+" miliseconds");
+	        		
+	        		threadPool.shutdown();
+					
+				}
+			});
 	        
 	        // Check success
 	        if (controller.failed()) {
 	        	System.err.println("Rpc failed "+controller.errorText());
 	        }
-        } catch (Exception e) {
-            e.printStackTrace();
-        } 
-	    
+        	    
     }
 
     public static void main(String[] args) {

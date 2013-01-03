@@ -15,7 +15,7 @@ public class ProtoBufTestServer implements Runnable {
 
 	public void start() {
 		rpcConnectionFactory = SocketRpcConnectionFactories.createServerRpcConnectionFactory(1984);
-	    server = new RpcServer(rpcConnectionFactory, Executors.newFixedThreadPool(20), true);
+	    server = new RpcServer(rpcConnectionFactory, Executors.newFixedThreadPool(1), true);
 	    server.registerService(new ProtoBufTestServiceImpl());
 	    server.run();
 	}

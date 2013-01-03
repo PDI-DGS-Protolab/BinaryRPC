@@ -11,15 +11,22 @@ import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import com.mongodb.Mongo;
 import com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Data;
-import com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.ProtobufTestService;
 import com.paradigmatecnologico.binaryrpc.protobuf.model.Entity.Response;
+import com.paradigmatecnologico.binaryrpc.protobuf.model.ProtoBufTestService.ProtobufTestService;;
 
-public class ProtoBufTestServiceImpl extends ProtobufTestService {
+public class ProtoBufTestServiceImpl extends ProtobufTestService{
+
+	public ProtoBufTestServiceImpl() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	public static DB db;
-
+	
 	@Override
-	public void create(RpcController controller, Data request,RpcCallback<Response> done) {
+	public void create(RpcController controller, Data request,
+			RpcCallback<Response> done) {
+	        
 		// connect to mongoDB, ip and port number
      	Mongo mongo=null;
 		try {

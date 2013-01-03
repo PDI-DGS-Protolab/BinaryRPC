@@ -36,7 +36,7 @@ message Response{
 }
 
 
-option java_generic_services = true;
+option java_generic_services = false;
 //Defines simple service
 service ProtobufTestService {
 
