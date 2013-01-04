@@ -28,6 +28,7 @@ public class MessagePackTestClient implements Runnable {
 	public static interface RPCInterface {
         //Simple Call
 		Future<Response> create(Data data);		
+		void addTime(Long time);		
     }
  
     public void run() {
@@ -51,7 +52,7 @@ public class MessagePackTestClient implements Runnable {
         Packer packer = msgpack.createPacker(out);
 	    try {
 			packer.write(data);
-			System.out.println("1." + Thread.currentThread().getName()+": Calling (async) with "+out.toByteArray().length +" bytes...");
+			//System.out.println("1." + Thread.currentThread().getName()+": Calling (async) with "+out.toByteArray().length +" bytes...");
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
@@ -66,17 +67,18 @@ public class MessagePackTestClient implements Runnable {
 		}
         
         
-        System.out.println("2." + Thread.currentThread().getName()+": iface.create(data) returned");
+        //System.out.println("2." + Thread.currentThread().getName()+": iface.create(data) returned");
 		//Async call
         Response asyncResult = null;
         try {
 			asyncResult = future1.get(); 			
-			System.out.println("3." + Thread.currentThread().getName()+": Future<Response>.get() returned \"" + asyncResult.message + "\"");
+			//System.out.println("3." + Thread.currentThread().getName()+": Future<Response>.get() returned \"" + asyncResult.message + "\"");
 			Date responseTime = new Date();
 			
 			//Get the time bewteen calls;
 			long difference = responseTime.getTime()- requestTime.getTime();
-			System.out.println("4." + Thread.currentThread().getName()+": This call has taken "+ difference+" miliseconds");
+			//System.out.println("4." + Thread.currentThread().getName()+": This call has taken "+ difference+" miliseconds");
+			iface.addTime(difference);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally{

@@ -22,6 +22,14 @@ public class MessagePackTestServer {
 	
 	private static EventLoop loop;
 
+	public static Integer count = 0;
+	public static Long time = new Long(0);
+	
+	// Asynchronous call
+	public void addTime(Long difference) {
+		time+=difference;
+		count++;
+	}
 	
 	// Asynchronous call
     public Response create(Data data) {

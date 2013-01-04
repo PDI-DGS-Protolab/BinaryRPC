@@ -26,12 +26,6 @@
 									 ]
      							 
      },
-     {"name": "Search", "type": "record",
-      "fields": [
-        	{"name": "field", "type": ["string", "null"]},
-        	{"name": "value", "type": ["string", "null"]}
-      		]
-     },  
      {"name": "Response", "type": "record",
       "fields": [
 	        {"name": "code", "type": ["int", "null"]},
@@ -43,10 +37,6 @@
  "messages": {
      "create": {
          "request": [{"name": "request", "type": "RequestData"}],
-         "response": "Response"
-     },
-     "search": {
-         "request": [{"name": "request", "type": "Search"}],
          "response": "Response"
      }
  }

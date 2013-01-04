@@ -44,6 +44,10 @@ public class AvroTest {
 	private static DB db;
 	private static Callback proxy;
 	private static NettyTransceiver client;
+	
+	public static Integer count = 0;
+	public static Long time = new Long(0);
+	
 	   
 	  /**
 	   * 
@@ -205,9 +209,9 @@ public class AvroTest {
 		    req.setAddresses(addresses);
 		    //Add 500 bytes string
 		    req.setDescription("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam et ipsum felis, sit amet tincidunt erat. Duis id mauris sit amet eros consectetur " +
-		    					"posuere condimentum nec ipsum. Fusce nec est eu mauris fringilla facilisis. Cras a mauris feugiat eros lacinia molestie in non arcu. Maecenas " +
-		    					"in felis eu augue ornare pharetra eget a mauris. Mauris mi metus, fringilla eu lobortis sed, convallis non turpis. Aenean mi justo, dapibus eget " +
-		    					"accumsan quis, laoreet nec libero. Mauris ac turpis id elit cras amet.");
+	    					"posuere condimentum nec ipsum. Fusce nec est eu mauris fringilla facilisis. Cras a mauris feugiat eros lacinia molestie in non arcu. Maecenas " +
+	    					"in felis eu augue ornare pharetra eget a mauris. Mauris mi metus, fringilla eu lobortis sed, convallis non turpis. Aenean mi justo, dapibus eget " +
+	    					"accumsan quis, laoreet nec libero. Mauris ac turpis id elit cras amet.");
 		    //Add double value
 		    req.setID(new Random().nextDouble());
 		    //Add Boolean value
@@ -249,6 +253,8 @@ public class AvroTest {
 				//Get the time bewteen calls;
 				long difference = responseTime.getTime()- requestTime.getTime();
 				System.out.println("4." + Thread.currentThread().getName()+": This call has taken "+ difference+" miliseconds");
+				count++;
+				time+=difference;
 			} catch (IOException | InterruptedException | ExecutionException e) {
 				e.printStackTrace();
 			}
@@ -282,19 +288,21 @@ public class AvroTest {
 
 	    System.out.println("Push e to exit or any key to launch a new call: ");
 	    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-	    Boolean exit= true;
+	    Boolean looping= true;
 	    Integer index = 1;
-	    while (exit){
-	    	String input = br.readLine();
-	    	if (!"e".equals(input)){
+	    while (index<1001){
+//	    	String input = br.readLine();
+//	    	if (!"e".equals(input)){
 	    		Thread thread1 = new Thread(new AvroClientRunnable(),"client"+index);
 	    	    thread1.start();
 	    	    index++;
-	    	}else{
-	    		exit=false;;
-	    	}
+//	    	}else{
+//	    		looping=false;;
+//	    	}
 	    }
 	    
+	    Thread.currentThread().sleep(240000);
+	    System.out.println("The average time for "+count +" calls was: "+time/count);
 	    System.out.println("...Exitting, bye");
 	    client.close();
 		server.close();

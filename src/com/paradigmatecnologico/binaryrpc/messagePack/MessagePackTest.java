@@ -27,17 +27,18 @@ public class MessagePackTest {
 	    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	    Boolean exit= true;
 	    Integer index = 1;
-	    while (exit){
-	    	String input = br.readLine();
-	    	if (!"e".equals(input)){
+	    while (index<1001){
+//	    	String input = br.readLine();
+//	    	if (!"e".equals(input)){
 	    		Thread thread1 = new Thread(new MessagePackTestClient(),"client"+index);
 	    	    thread1.start();
 	    	    index++;
-	    	}else{
-	    		exit=false;;
-	    	}
+//	    	}else{
+//	    		exit=false;;
+//	    	}
 	    }
-	    
+	    Thread.currentThread().sleep(240000);
+	    System.out.println("The average time for "+MessagePackTestServer.count +" calls was: "+MessagePackTestServer.time/MessagePackTestServer.count);
 	    System.out.println("...Exitting, bye");
 	    MessagePackTestServer.stop();
 	    System.exit(0);

@@ -44,7 +44,7 @@ public class ThriftTestClient implements Runnable {
 	        TSerializer serializer = new TSerializer();
 	        try {
 	        	empDtl = serializer.serialize(data);
-	        	System.out.println("1." + Thread.currentThread().getName()+": Calling (async) with "+ empDtl.length +" bytes...");
+	        	//System.out.println("1." + Thread.currentThread().getName()+": Calling (async) with "+ empDtl.length +" bytes...");
 	        } catch (TException e) {
 	            e.printStackTrace();
 	        } 
@@ -85,13 +85,15 @@ public class ThriftTestClient implements Runnable {
 			public void onComplete(create_call response) {
 				try {
                     Response result = response.getResult();
-                    System.out.println("2." + Thread.currentThread().getName()+": client.create(data, new CreateMethodCallback()); returned");
-                    System.out.println("3." + Thread.currentThread().getName()+": Future<Response>.get() returned \"" + result.getMessage() + "\"");
+                    //System.out.println("2." + Thread.currentThread().getName()+": client.create(data, new CreateMethodCallback()); returned");
+                    //System.out.println("3." + Thread.currentThread().getName()+": Future<Response>.get() returned \"" + result.getMessage() + "\"");
                     Date responseTime = new Date();
         			
         			//Get the time between calls;
         			long difference = responseTime.getTime()- requestTime.getTime();
-        			System.out.println("4." + Thread.currentThread().getName()+": This call has taken "+ difference+" miliseconds");
+        			//System.out.println("4." + Thread.currentThread().getName()+": This call has taken "+ difference+" miliseconds");
+        			ThriftTest.count++;
+        			ThriftTest.time+=difference;
                 } catch (TException e) {
                     e.printStackTrace();
                 }
