@@ -11,29 +11,20 @@ public static void main(String[] args) throws Exception {
 		System.out.println("Starting server on port 1984 ...");
 
 	    Thread threadS = new Thread(new ProtoBufTestServer(),"server");
-	    threadS.start();
-		// Uncomment this to launch 5 concurrent threads
-//      Thread thread1 = new Thread(new ProtoBufTestClient(),"client1");
-//	    Thread thread2 = new Thread(new ProtoBufTestClient(),"client2");
-//	    Thread thread3 = new Thread(new ProtoBufTestClient(),"client3");
-//	    Thread thread4 = new Thread(new ProtoBufTestClient(),"client4");
-//	    thread1.start();	     
-//	    thread2.start();	    
-//	    thread3.start();	    
-//	    thread4.start();	    
+	    threadS.start();   
 	    
 	    System.out.println("Push e to exit or any key to launch a new call: ");
 	    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-	    Boolean exit= true;
+	    Boolean looping= true;
 	    Integer index = 1;
-	    while (exit){
+	    while (looping){
 	    	String input = br.readLine();
 	    	if (!"e".equals(input)){
 	    		Thread thread1 = new Thread(new ProtoBufTestClient(),"client"+index);
 	    	    thread1.start();
 	    	    index++;
 	    	}else{
-	    		exit=false;;
+	    		looping=false;;
 	    	}
 	    }
 	    

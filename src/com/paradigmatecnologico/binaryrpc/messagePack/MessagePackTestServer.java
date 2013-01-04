@@ -40,7 +40,6 @@ public class MessagePackTestServer {
 		try {
 			mongo = new Mongo("localhost", 27017);
 		} catch (UnknownHostException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
      	
@@ -90,7 +89,6 @@ public class MessagePackTestServer {
         try {
 			svr.listen(1984);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
  

@@ -16,16 +16,7 @@ public class ThriftTest {
 
 	    Thread threadS = new Thread(new ThiftTestServer(),"server");
 	    threadS.start();
-		// Uncomment this to launch 5 concurrent threads
-//      Thread thread1 = new Thread(new MessagePackTestClient(),"client1");
-//	    Thread thread2 = new Thread(new MessagePackTestClient(),"client2");
-//	    Thread thread3 = new Thread(new MessagePackTestClient(),"client3");
-//	    Thread thread4 = new Thread(new MessagePackTestClient(),"client4");
-//	    thread1.start();	     
-//	    thread2.start();	    
-//	    thread3.start();	    
-//	    thread4.start();	    
-	    
+
 	    System.out.println("Push e to exit or any key to launch a new call: ");
 	    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	    Boolean looping= true;

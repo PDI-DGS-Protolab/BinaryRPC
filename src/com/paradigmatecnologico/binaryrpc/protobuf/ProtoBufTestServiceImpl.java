@@ -18,7 +18,6 @@ public class ProtoBufTestServiceImpl extends ProtobufTestService{
 
 	public ProtoBufTestServiceImpl() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public static DB db;

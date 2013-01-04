@@ -274,34 +274,24 @@ public class AvroTest {
 	    client = new NettyTransceiver(new InetSocketAddress(server.getPort()));
 	       
 	    proxy = SpecificRequestor.getClient(Callback.class, client);
-	     
-	    // Uncomment this to launch 5 concurrent threads
-//	    Thread thread1 = new Thread(new AvroClientRunnable(),"client1");
-//	    Thread thread2 = new Thread(new AvroClientRunnable(),"client2");
-//	    Thread thread3 = new Thread(new AvroClientRunnable(),"client3");
-//	    Thread thread4 = new Thread(new AvroClientRunnable(),"client4");
-//	    thread1.start();	    
-//	    thread2.start();	    
-//	    thread3.start();	    
-//	    thread4.start();	    
 	    
 
 	    System.out.println("Push e to exit or any key to launch a new call: ");
 	    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	    Boolean looping= true;
 	    Integer index = 1;
-	    while (index<1001){
-//	    	String input = br.readLine();
-//	    	if (!"e".equals(input)){
+	    while (looping){
+	    	String input = br.readLine();
+	    	if (!"e".equals(input)){
 	    		Thread thread1 = new Thread(new AvroClientRunnable(),"client"+index);
 	    	    thread1.start();
 	    	    index++;
-//	    	}else{
-//	    		looping=false;;
-//	    	}
+	    	}else{
+	    		looping=false;;
+	    	}
 	    }
 	    
-	    Thread.currentThread().sleep(240000);
+	    //Thread.currentThread().sleep(240000);
 	    System.out.println("The average time for "+count +" calls was: "+time/count);
 	    System.out.println("...Exitting, bye");
 	    client.close();
