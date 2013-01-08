@@ -8,6 +8,10 @@ public class ProtoBufTest {
 
 public static void main(String[] args) throws Exception {
 		
+		System.out.println("******************************");
+		System.out.println("     Protocol Buffer Test     ");
+		System.out.println("******************************");
+		System.out.println();
 		System.out.println("Starting server on port 1984 ...");
 
 	    Thread threadS = new Thread(new ProtoBufTestServer(),"server");

@@ -49,23 +49,23 @@ public class ProtoBufTestClient implements Runnable {
 	        RpcController controller = new SocketRpcController();
 	        
 	        //CreateMethodCallback callback = new CreateMethodCallback();
-	        testService.create(controller,data, new RpcCallback<Entity.Response>() {
-
-				@Override
-				public void run(Entity.Response arg0) {
-					Response result = arg0;
-	                System.out.println("2." + Thread.currentThread().getName()+": client.create(data, new CreateMethodCallback()); returned");
-	                System.out.println("3." + Thread.currentThread().getName()+": Future<Response>.get() returned \"" + result.getMessage() + "\"");
-	                Date responseTime = new Date();
-	        		
-	        		//Get the time between calls;
-	        		long difference = responseTime.getTime()- requestTime.getTime();
-	        		System.out.println("4." + Thread.currentThread().getName()+": This call has taken "+ difference+" miliseconds");
-	        		
-	        		threadPool.shutdown();
-					
-				}
-			});
+//	        testService.create(controller,data, new RpcCallback<Entity.Response>() {
+//
+//				@Override
+//				public void run(Entity.Response arg0) {
+//					Response result = arg0;
+//	                System.out.println("2." + Thread.currentThread().getName()+": client.create(data, new CreateMethodCallback()); returned");
+//	                System.out.println("3." + Thread.currentThread().getName()+": Future<Response>.get() returned \"" + result.getMessage() + "\"");
+//	                Date responseTime = new Date();
+//	        		
+//	        		//Get the time between calls;
+//	        		long difference = responseTime.getTime()- requestTime.getTime();
+//	        		System.out.println("4." + Thread.currentThread().getName()+": This call has taken "+ difference+" miliseconds");
+//	        		
+//	        		threadPool.shutdown();
+//					
+//				}
+//			});
 	        
 	        // Check success
 	        if (controller.failed()) {
