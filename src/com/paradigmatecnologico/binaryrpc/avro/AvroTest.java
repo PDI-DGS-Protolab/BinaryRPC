@@ -271,6 +271,25 @@ public class AvroTest {
 		System.out.println("**************************");
 		System.out.println();
 		System.out.println("Starting server on port 1984 ...");
+		
+		//We need tho clean Mongo DB if we want to make same result in every RPC
+		// connect to mongoDB, ip and port number
+		Mongo mongo=null;
+		try {
+			mongo = new Mongo("localhost", 27017);
+		} catch (UnknownHostException e) {
+			e.printStackTrace();
+		}
+		// get database from MongoDB,
+		DB db = mongo.getDB("test");
+		try {
+			DBCollection coll = db.getCollection("testCollection");
+			coll.drop();
+		}
+		finally{
+			mongo.close();
+		}
+		
 		//Define new test server
 	    server = new NettyServer(new SpecificResponder(Callback.class,new AvroTestServer()),new InetSocketAddress(1984)); 
 	    server.start();

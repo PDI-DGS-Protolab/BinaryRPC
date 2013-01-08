@@ -82,7 +82,26 @@ public class MessagePackTestServer {
     }
  
     public static void run() {
-        loop = EventLoop.defaultEventLoop();
+    	//We need tho clean Mongo DB if we want to make same result in every RPC
+    	// connect to mongoDB, ip and port number
+    	Mongo mongo=null;
+    	try {
+    		mongo = new Mongo("localhost", 27017);
+    	} catch (UnknownHostException e) {
+    		e.printStackTrace();
+    	}
+    	// get database from MongoDB,
+    	db = mongo.getDB("test");
+    	try {
+    		DBCollection coll = db.getCollection("testCollection");
+    		coll.drop();
+    	}
+    	finally{
+    		mongo.close();
+    	}
+        
+    	
+    	loop = EventLoop.defaultEventLoop();
         
         svr = new Server(loop);
         svr.serve(new MessagePackTestServer());
