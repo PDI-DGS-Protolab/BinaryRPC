@@ -117,14 +117,14 @@ public class ThriftTestClient implements Runnable {
 	    //Add String Array
 	    data.setAddresses(addresses);
 	    //Add 500 bytes string
-	    data.description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam et ipsum felis, sit amet tincidunt erat. Duis id mauris sit amet eros consectetur " +
-	    					"posuere condimentum nec ipsum. Fusce nec est eu mauris fringilla facilisis. Cras a mauris feugiat eros lacinia molestie in non arcu. Maecenas " +
-	    					"in felis eu augue ornare pharetra eget a mauris. Mauris mi metus, fringilla eu lobortis sed, convallis non turpis. Aenean mi justo, dapibus eget " +
-	    					"accumsan quis, laoreet nec libero. Mauris ac turpis id elit cras amet.";
+//	    data.description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam et ipsum felis, sit amet tincidunt erat. Duis id mauris sit amet eros consectetur " +
+//	    					"posuere condimentum nec ipsum. Fusce nec est eu mauris fringilla facilisis. Cras a mauris feugiat eros lacinia molestie in non arcu. Maecenas " +
+//	    					"in felis eu augue ornare pharetra eget a mauris. Mauris mi metus, fringilla eu lobortis sed, convallis non turpis. Aenean mi justo, dapibus eget " +
+//	    					"accumsan quis, laoreet nec libero. Mauris ac turpis id elit cras amet.";
 	    //Add double value
 	    data.setID(new Random().nextDouble());
 	    //Add Boolean value
-	    data.setMember(true);
+	    //data.setMember(true);
 	    //Add String
 	    data.setName("name01");
 	    //Add enum type

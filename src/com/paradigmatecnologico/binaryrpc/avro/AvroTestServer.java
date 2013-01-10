@@ -63,11 +63,11 @@ public class AvroTestServer implements Callback {
 			}
 			BasicDBObject doc = new BasicDBObject("ID", request.getID()).
 					append("name", request.getName().toString()).
-					append("state", request.getState().toString()).
+					append("state", request.getState()!=null?request.getState().toString():null).
 					append("addresses", addresses).
 					//append("telephones", request.getTelephones()).
 					append("member", request.getMember()).
-					append("description", request.getDescription().toString());
+					append("description", request.getDescription()!=null?request.getDescription().toString():null);
 			
 			coll.insert(doc);
 			
